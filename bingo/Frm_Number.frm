@@ -1997,11 +1997,12 @@ End Sub
 Private Sub LblNumber_Click(Index As Integer)
   Dim a As String
   'cuando click en una etiqueta recibo en la variable index el numero de etiqueta que se toco oseqa que numero era
-  'sOrden es donde se guardan los numeros en el orden que sale
+  'sOrden es donde se guardan los numeros en el orden que salen
   'J es el indice que apunta al ultimo numero que salio ( si salieron 5 numeros j = 4)
   'bOrden son los numeros que salieron
+  
   If borro = False Then
-        
+      
                 
         If bOrden(Index) = False Then ' si no escribi el numero
         '( es para no repintar un numero ya escrito y no remostrarlo
@@ -2012,6 +2013,7 @@ Private Sub LblNumber_Click(Index As Integer)
                     Else
                       a = Trim(Str(Index))
                    End If
+                   
                    sOrden(j) = a 'guardo el numero que salio en el orden j
                    
                    
@@ -2037,21 +2039,21 @@ Private Sub LblNumber_Click(Index As Integer)
                             ' ahora escribos los numeros que salieron en 20 hasta  J
                             'si salieron 22 numeros j es 22, y luego los muestro en las etiquetas 1 osea corro el z 20)
                             Frm_Mensajes.LblOrden(z + 1 - 20).BackColor = &HC0C0C0
-                            Frm_Mensajes.LblOrden(z + 1 - 20).Caption = Trim(sOrden(z))
+                            Frm_Mensajes.LblOrden(z + 1 - 20).Caption = Trim(sOrden(z + 1))
                             Frm_Mensajes.LblNumber.Refresh
                         Next
                    End If
                    If j > 60 And j < 80 Then
                         For z = 40 To j
                             Frm_Mensajes.LblOrden(z + 1 - 40).BackColor = &HC0C0C0
-                            Frm_Mensajes.LblOrden(z + 1 - 40).Caption = Trim(sOrden(z))
+                            Frm_Mensajes.LblOrden(z + 1 - 40).Caption = Trim(sOrden(z + 1))
                             Frm_Mensajes.LblNumber.Refresh
                         Next
                    End If
                    If j > 80 Then
                         For z = 60 To j
-                            Frm_Mensajes.LblOrden(z - 60).BackColor = &HC0C0C0
-                            Frm_Mensajes.LblOrden(z - 60).Caption = Trim(sOrden(z))
+                            Frm_Mensajes.LblOrden(z + 1 - 60).BackColor = &HC0C0C0
+                            Frm_Mensajes.LblOrden(z + 1 - 60).Caption = Trim(sOrden(z + 1))
                             Frm_Mensajes.LblNumber.Refresh
                         Next
                    End If
